@@ -12,6 +12,7 @@ import { BlogComponent } from "./components/blog/blog.component";
 import { FormularioComponent } from "./components/formulario/formulario.component";
 import { PeliculasComponent } from "./components/peliculas/peliculas.component";
 import { PaginaComponent } from "./components/pagina/pagina.component";
+import { ErrorComponent } from "./components/error/error.component";
 
 // Array de rutas o arry de Obj de tipo Routes (configuracion de las rutas que se quieran crear). Los Obj son Json
 const appRoute: Routes = [
@@ -20,7 +21,9 @@ const appRoute: Routes = [
     {path: 'blog', component: BlogComponent},
     {path: 'formulario', component: FormularioComponent},
     {path: 'peliculas', component: PeliculasComponent},
-    {path: 'pagina-de-prueba', component: PaginaComponent}
+    {path: 'pagina-de-prueba', component: PaginaComponent},
+    // Ruta para url no existentes o erroneas. Siempre se pone de ultimo.
+    {path: '**', component: ErrorComponent}
 ]
 
 // Exportar el modulo de rutas
