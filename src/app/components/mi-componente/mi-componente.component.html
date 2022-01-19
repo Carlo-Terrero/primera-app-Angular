@@ -1,0 +1,20 @@
+<!-- Esta es la vista del componente mi-componente. Se hace asi para que este
+ la logica del componente en un lado y la vista del componente en el otro -->
+<p> Esto es bindig por interpolacion y se usa para mostrar los datos de las propiedades </p>
+<h1> {{titulo}} </h1>
+<h2> {{year}} </h2>
+<p> {{comentario}} </p>
+<br>
+
+<button (click)="ocultarPeliculas()">Ocultar</button>
+<!-- *ngIf es una directiva condicional (como un if)-->
+<div *ngIf="mostratPeliculas">
+
+    <p>
+        Llamamos a este componente desde otro, ya que se pueden utilizar de manera global
+        en cualquier sitio
+    </p>
+    <app-peliculas></app-peliculas>
+
+</div>
+
