@@ -1,3 +1,16 @@
 <h2 class="subheader">Página de pruebas</h2>
 
-<p>pagina works!</p>
+<!-- Directiva condicional que se aplica al HTML (if) -->
+<div *ngIf="nombre && apellido">
+    <h3>Es un placer verle por aquí</h3>
+    <h3>{{nombre}} {{apellido}}</h3>
+</div>
+
+<div *ngIf="!nombre !apellido">
+    <h3>No hay datos introducidos</h3>
+</div>
+
+<button (click)="redireccion()">Introducir User</button>
+
+
+

@@ -21,7 +21,13 @@ const appRoute: Routes = [
     {path: 'blog', component: BlogComponent},
     {path: 'formulario', component: FormularioComponent},
     {path: 'peliculas', component: PeliculasComponent},
+
+    // Con esta ruta se puede entrar al componente ya que el dato necesario se vuelve obcional
     {path: 'pagina-de-prueba', component: PaginaComponent},
+    
+    // Enviar parámetros por la url
+    {path: 'pagina-de-prueba/:nombre/:apellido', component: PaginaComponent},
+
     // Ruta para url no existentes o erroneas. Siempre se pone de ultimo.
     {path: '**', component: ErrorComponent}
 ]

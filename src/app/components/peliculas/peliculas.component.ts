@@ -1,5 +1,5 @@
-import { Component, OnInit, DoCheck, OnDestroy } from '@angular/core';
 // SIEMPRE que se utilcen hooks, tienes que importalos e implementarlos en implements
+import { Component, OnInit, DoCheck, OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'app-peliculas', /* el selector ese editable aunque el componente se genere por comandos */
@@ -14,6 +14,7 @@ export class PeliculasComponent implements OnInit, DoCheck, OnDestroy {
   eso seria dentro del OnInit. En el constructor sole se le da valor a las propiedades de la clase  y
   precargar cosas necesarias */
   constructor() {
+
     this.titulo = "Componente peliculas";
     console.log("CONSTRUCTOR LANDADO!!");
   }
