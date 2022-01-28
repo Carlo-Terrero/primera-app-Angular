@@ -3,7 +3,10 @@ del componente padre(donde lo llamamos) al hijo(al que llamamos).
 Esto se gestiona desde la funcionalidad del componente(.TS).
 ahora le pasamos una variable del padre para el hijo, tambien puede ser un
 texte "'texto Aqui'"-->
-<app-slider [nombre] = "'Blog'"></app-slider>
+<app-slider 
+    [nombre] = "'Blog'"
+    [size] = "'small'"
+></app-slider>
 
 <div class="center">
     <section id="content">

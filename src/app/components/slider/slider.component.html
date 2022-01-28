@@ -1,5 +1,11 @@
-<div id="slider" class="slider-big">
+<!-- Otra forma de hacer el cambio de estilo. Esta es perfecta si tengo mas de dos.
+[ngClass] o [class]="{
+        'slider-big' : !size || size == 'big',
+        'slider-small' : size == 'small'
+}""
+ -->
+<div id="slider" [ngClass]="size == ' ' ? 'slider-big' : 'slider-small' ">
     <h1>{{nombre}}</h1>
  
-    <a href="#" class="btn-white">Ir al blog</a>
+    <a [routerLink] = "['/blog']" class="btn-white" *ngIf="size == ' ' || size == 'big'">Ir al blog</a>
 </div>
