@@ -2,21 +2,12 @@
 Cuando añadimos el componente a modules, se utliza como una etiqueta de html 
 (el nombre de esta "etiqueta viene dado en el selector del componente")-->
 
-<app-header></app-header> <!-- Este Componente la nav -->
-<app-slider></app-slider> <!-- Este es el cuadro rojo de bienbenida con bot al blog -->
-
-<div class="center">
-    <section id="content">
-        <!-- Esta etiqueta va al router, revisar que rutas tengo creadas. Si conciden con el path, carga ese componente,
-        colocando dicho componente de manera dinamica -->
-        <router-outlet></router-outlet>
-
-    </section>
-    <app-sidebar></app-sidebar>
-</div>
+<app-header></app-header> <!-- Este Componente es la nav -->
 
 
-
+<!-- Esta etiqueta va al router, revisar que rutas tengo creadas. Si conciden con el path, carga ese componente,
+colocando dicho componente de manera dinamica -->
+<router-outlet></router-outlet>
 
 <app-footer></app-footer>
 

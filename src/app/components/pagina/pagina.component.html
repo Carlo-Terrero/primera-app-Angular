@@ -1,16 +1,34 @@
-<h2 class="subheader">Página de pruebas</h2>
+<app-slider [nombre] = "'Pagina de pruebas'"></app-slider>
 
-<!-- Directiva condicional que se aplica al HTML (if) -->
-<div *ngIf="nombre && apellido">
-    <h3>Es un placer verle por aquí</h3>
-    <h3>{{nombre}} {{apellido}}</h3>
+<div class="center">
+    <section id="content">
+        <h2 class="subheader">Página de pruebas</h2>
+                
+        <!-- Directiva condicional que se aplica al HTML (if) -->
+        <div *ngIf="nombre && apellido; else noHayParametros">
+            <h3>Es un placer verle por aquí</h3>
+            <h3>{{nombre}} {{apellido}}</h3>
+        </div>
+
+        <!-- <div *ngIf="!nombre !apellido">
+            <h3>No hay datos introducidos</h3>
+        </div> -->
+
+        <!-- Con esta otra manera se hace como un else, solo haciendo los como en la directiva
+        de arriba. Tambien podriamos hacer esto: 
+
+        <div *ngIf="nombre && apellido; then siHayParametros else noHayParametros">
+        </div>
+
+        y llamaria uno u otro dependiendo si tiene o no el dato.
+        -->
+        <ng-template #noHayParametros>
+            <h3>No hay datos introducidos</h3>
+        </ng-template>
+
+        <button (click)="redireccion()">Introducir User</button>
+
+    </section>
+    <app-sidebar></app-sidebar>
 </div>
-
-<div *ngIf="!nombre !apellido">
-    <h3>No hay datos introducidos</h3>
-</div>
-
-<button (click)="redireccion()">Introducir User</button>
-
-
 
