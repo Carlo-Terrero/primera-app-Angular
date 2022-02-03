@@ -2,68 +2,101 @@
 
 <div class="center">
     <section id="content">
-
-        
-<h2 class="subheader">Películas</h2>
-
-<h1>{{titulo}}</h1>
-<button (click) = "cambiarTitulo()" >Pulsame</button>
-<hr/>
-
-<h2>Mostrar primeta pelicula</h2>
-{{peliculas[0].title}}
-
-<hr/>
-
-<h2>Numero de peliculas</h2>
-
-<div *ngIf="peliculas.length <= 3">
-    Hay pocas peliculas    
-</div>
-
-<div *ngIf="peliculas.length > 3">
-    Hay Muchas peliculas    
-</div>
-
-{{peliculas.length}}
-
-<hr/>
-
-<h2 class="subheader"> Listado de Películas</h2>
-
-<div id="articles" *ngIf="peliculas.length > 0">
-
-    <!-- Esta directiva de control es un for each.  -> let i = index <-  es para obtener el indice -->
-    <article class="article-item" *ngFor="let pelicula of peliculas; let i = index; " >
-        <div class="image-wrap">
-            <img src="{{pelicula.image}}" alt="{{pelicula.title}}" />
+                
+        <div id="favorita" *ngIf="pelifab">
+            <h2 class="subheader">
+                Pelicula Favorita
+            </h2>
+            <h4>
+                <!-- Esto es un pipes: Una pequeña funcionalidad que se pueden
+                usar en la vista (Hay varias y se pueden crear) -->
+                {{pelifab.title | uppercase}}
+            </h4>
+            <h4>
+                <!-- Este lo hemos creado nosotros -->
+                {{pelifab.year | espar}}
+            </h4>
+            <h5>
+                <!-- El anterior pipes es para poner en mayusculas y este 
+                (entre otros) es para dar formato a la fecha -->
+                {{fecha | date : 'dd/MM/yyyy'}}
+            </h5>
         </div>
 
-        <h2>{{pelicula.title}}</h2>
-        <span class="date">
-            Hace 5 minutos
-        </span>
+        <h2 class="subheader">Películas</h2>
 
-        <!-- Esta es una directiva de estilos [stiles.background]="pelicula.year >= 2020 ? 'green' : 'red' ">
-               Esta es una directiva de class [class.background]="pelicula.year >= 2020 ? 'namClass' : 'otraNamClass' ">
-        tambien:  [class.nomClass]="pelicula.year > 2020" (y luego la condicion)
-        tambien:  [ngClass]="{
-                                'nomClass': condicion,
-                                'nomClass': condicion
-                            }"
-        Yo tequeteando he dado con la que tengo puesta
+        <!--
+        <h1>{{titulo}}</h1>
+        <button (click) = "cambiarTitulo()" >Pulsame</button>
+        <hr/>
+
+        <h2>Mostrar primeta pelicula</h2>
+        {{peliculas[0].title}}
+
+        <hr/>
+
+        <h2>Numero de peliculas</h2>
+
+        <div *ngIf="peliculas.length <= 3">
+            Hay pocas peliculas    
+        </div>
+
+        <div *ngIf="peliculas.length > 3">
+            Hay Muchas peliculas    
+        </div>
+
+        {{peliculas.length}}
+
+        <hr/>
+
+        <h2 class="subheader"> Listado de Películas</h2>
+
         -->
-        <span class="year" [class]="pelicula.year >= 2020 ? 'year-green' : 'year-red' ">
-            {{pelicula.year}}
-        </span>
 
-        <a href="#">Leer más</a>
+        <div id="articles" *ngIf="peliculas">
+            <!-- <article *ngFor="let pelicula of peliculas; let i = index; " >
+                <app-pelicula> 
+                    [pelicula] = "pelicula"
+                </app-pelicula>
+                
+            </article> -->            
+        
+           <!-- Esta directiva de control es un for each.  -> let i = index <-  es para obtener el indice -->
+           <article class="article-item" *ngFor="let pelicula of peliculas; let i = index; " >
+                <div class="image-wrap">
+                    <img src="{{pelicula.image}}" alt="{{pelicula.title}}" />
+                </div>
+        
+                <h2>{{pelicula.title}}</h2>
+                <span class="date">
+                    Hace 5 minutos
+                </span>
+        
+                <!-- Esta es una directiva de estilos [stiles.background]="pelicula.year >= 2020 ? 'green' : 'red' ">
+                    Esta es una directiva de class [class.background]="pelicula.year >= 2020 ? 'namClass' : 'otraNamClass' ">
+                tambien:  [class.nomClass]="pelicula.year > 2020" (y luego la condicion)
+                tambien:  [ngClass]="{
+                                        'nomClass': condicion,
+                                        'nomClass': condicion
+                                    }"
+                Yo tequeteando he dado con la que tengo puesta
+                -->
+                <span class="year" [class]="pelicula.year >= 2020 ? 'year-green' : 'year-red' ">
+                    {{pelicula.year}}
+                </span>
+        
+                <a href="#">Leer más</a>
+        
+                <button (click)="favorita(pelicula)">
+                    Seleccionar favorita
+                </button>
 
-        <div class="clearfix"></div>
-    </article>
-
-</div>
-
+                <div class="clearfix"></div>
+            </article>
+    
+        </div>
+        
     </section>
+    
     <app-sidebar></app-sidebar>
 </div>
