@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 // Esta es la importacion de las rutas que hemos hecho
-import {routing, appRoutingProviders } from './app.routing'
+import { routing, appRoutingProviders } from './app.routing';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { MiComponent } from './components/mi-componente/mi-componente.component';
@@ -39,7 +40,8 @@ import { EsParPipe } from './pipes/espar.pipe';
   ],
   imports: [ // Aqui se cargan los modulos que modifican el funcionamiento global del framework(agregamos routing)
     BrowserModule,
-    routing
+    routing,
+    FormsModule
   ],
   //En providers se cargan los servicios
   providers: [],
