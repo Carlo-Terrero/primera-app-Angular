@@ -1,4 +1,4 @@
-/* 
+/* Este servicio NO se comunica con el back
 1º Importamos el objeto Injectable que permite aplicar un decorador a la clase y cuando necesite usar el servicio no 
 tengo que craar el objeto como tal. 
 2º Luego importamos el modelo. */
