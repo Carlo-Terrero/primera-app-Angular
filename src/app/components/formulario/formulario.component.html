@@ -11,33 +11,48 @@
             Le damos nombre a los input del formulario #nombre="ngModel" (Funciona sin eso)
             Le damos el valor del input al atributo del objeto [(ngModel)]="user.nombre" 
             Esta ultima es una directiva de bindin bi direccional por eso se usa [()]
-        -->
         
+        {{user.nombre}} Con esto sacamos fuera el dato introducido
+        -->
         <form class="mid-form" #userForm="ngForm" (ngSubmit)="onSubmit()">
             <div class="form-group">
                 <label for="nombre">Nombre</label>
-                <input type="text" name="nombre" #nombre="ngModel" [(ngModel)]="user.nombre"  />
+                <input type="text" name="nombre" #nombre="ngModel" [(ngModel)]="user.nombre"  required
+                pattern = "[a-zA-Z]+" />
+
+                <small *ngIf="!nombre.valid && nombre.touched">
+                    Introduzca el nombre correctamente.
+                </small>
             </div>
 
             <div class="form-group">
                 <label for="apellidos">Apellidos</label>
-                <input type="text" name="apellidos" #apellido="ngModel" [(ngModel)]="user.apellidos" />
+                <input type="text" name="apellidos" #apellidos="ngModel" [(ngModel)]="user.apellidos" required/>
+                <small *ngIf="!apellidos.valid && apellidos.touched">
+                    Introduzca los apellidos correctamente.
+                </small>
             </div>
 
             <div class="form-group">
                 <label for="bio">Biografia</label>
-                <textarea name="bio" #bio="ngModel" [(ngModel)]="user.bio"></textarea>
+                <textarea name="bio" #bio="ngModel" [(ngModel)]="user.bio" required></textarea>
+                <small *ngIf="!bio.valid && bio.touched">
+                    Introduzca la Biografía correctamente.
+                </small>
             </div>
 
             <div class="form-group radibuttons">
-                <input type="radio" name="genero" value="hombre" [(ngModel)]="user.genero" /> Hombre 
-                <input type="radio" name="genero" value="mujer" [(ngModel)]="user.genero"/> Mujer 
-                <input type="radio" name="genero" value="otro" [(ngModel)]="user.genero"/> Otro
+                <input type="radio" name="genero" value="hombre" #genero="ngModel" [(ngModel)]="user.genero" required /> Hombre 
+                <input type="radio" name="genero" value="mujer" #genero="ngModel" [(ngModel)]="user.genero"/> Mujer 
+                <input type="radio" name="genero" value="otro" #genero="ngModel" [(ngModel)]="user.genero"/> Otro
+                <small *ngIf="!genero.valid && genero.touched">
+                    Seleccione genero válido
+                </small>
             </div>
 
             <div class="clearfix"></div>
 
-            <input type="submit" value="Enviar" class="btn btn-success" />
+            <input type="submit" value="Enviar" class="btn btn-success" [disabled]="userForm.invalid"/>
 
         </form>
 
